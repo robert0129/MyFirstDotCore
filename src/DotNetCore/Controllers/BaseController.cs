@@ -12,6 +12,10 @@ namespace DotNetCore.Controllers
 {
     public class BaseController : Controller
     {
+        public BaseController()
+        {
+        }
+
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             base.OnActionExecuting(context);
