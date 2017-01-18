@@ -8,6 +8,6 @@ namespace DotNetCore.Services
 {
     public interface IAccountRepository
     {
-        IEnumerable<Account> GetAccounts();
+        IEnumerable<Account> GetAllAccounts();
     }
 }

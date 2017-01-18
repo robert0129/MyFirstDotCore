@@ -15,7 +15,7 @@ namespace DotNetCore.Services
             new Account { id = 2, username = "Robert3", email = "robert3.chen@robert.com", phone="0800-000-123", password = "1234567890"},
         };
 
-        public IEnumerable<Account> GetAccounts()
+        public IEnumerable<Account> GetAllAccounts()
         {
             return _accounts;
         }

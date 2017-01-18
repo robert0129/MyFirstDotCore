@@ -1,0 +1,14 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<Account>
+@{
+    ViewBag.Title = "Account List";
+}
+
+@foreach (var acct in Model)
+{
+    <ul>
+        <li>@acct.username | @acct.email</li>
+    </ul>
+}
