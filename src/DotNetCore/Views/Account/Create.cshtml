@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Account
+@{
+    ViewBag.Title = "Create Account";
+}
+
+<form asp-action="Create">
+    <div asp-validation-summary="All"></div>
+
+    <label asp-for="username"></label>
+    <input type="text" asp-for="username" />
+    <span asp-validation-for="username"></span>
+    <br />
+
+    <label asp-for="password"></label>
+    <input type="password" asp-for="password" />
+    <span asp-validation-for="password"></span>
+    <br />
+
+    <label asp-for="email"></label>
+    <input type="text" asp-for="email" />
+    <span asp-validation-for="email"></span>
+    <br />
+
+    <label asp-for="phone"></label>
+    <input type="text" asp-for="phone" />
+    <span asp-validation-for="phone"></span>
+    <br />
+
+    <input type="submit" value="Create" />
+</form>
+
+
+

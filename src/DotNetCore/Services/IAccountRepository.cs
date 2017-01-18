@@ -9,5 +9,6 @@ namespace DotNetCore.Services
     public interface IAccountRepository
     {
         IEnumerable<Account> GetAllAccounts();
+        void AddAccount(Account account);
     }
 }

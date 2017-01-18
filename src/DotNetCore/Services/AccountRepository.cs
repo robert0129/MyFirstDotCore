@@ -19,5 +19,11 @@ namespace DotNetCore.Services
         {
             return _accounts;
         }
+
+        public void AddAccount(Account account)
+        {
+            account.id = _accounts.Max(a => a.id) + 1;
+            _accounts.Add(account);
+        }
     }
 }
