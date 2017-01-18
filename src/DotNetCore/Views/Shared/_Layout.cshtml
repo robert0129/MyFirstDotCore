@@ -12,8 +12,15 @@
     </envrionment>
 </head>
 <body>
-    <div>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <a asp-controller="Home" asp-action="Index" class="navbar-brand">Home</a>
+        </div>
+    </div>
+    <div class="container body-content">
         @RenderBody()
+        <hr />
+        <footer>Copyright &copy; 2017 - Robert AspNetCore</footer>
     </div>
     <envrionment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

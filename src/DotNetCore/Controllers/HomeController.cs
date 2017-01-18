@@ -8,14 +8,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DotNetCore.Controllers
 {
-    [Route("Core")]
     public class HomeController : BaseController
     {
         // GET: /<controller>/
-        [Route("start")]
-        public IActionResult Index()
+        public IActionResult Index(int? id)
+        {
+            //var contact = new { id = id, FirstName = "Robert", LastName = "Chen", Email = "robert.chen@robert.com"};
+            return View();
+        }
+
+        public IActionResult About()
         {
             return View();
         }
+            
     }
 }
