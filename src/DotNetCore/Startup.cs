@@ -34,11 +34,23 @@ namespace DotNetCore
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            } else {
+                app.UseExceptionHandler("Home/Error");
+            }
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseMvc();
+            app.UseMvc(route => {
+                route.MapRoute(
+                    name: "default",
+                    template : "{Controller=Home}/{Action=Index}/{id?}"
+                    );
+            });
+            //app.UseMvcWithDefaultRoute();
         }
     }
 }
