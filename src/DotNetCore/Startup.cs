@@ -47,7 +47,7 @@ namespace DotNetCore
             app.UseMvc(route => {
                 route.MapRoute(
                     name: "default",
-                    template : "{Controller=Home}/{Action=Index}/{id?}"
+                    template: "{controller=Home}/{action=Index}/{id?}"
                     );
             });
             //app.UseMvcWithDefaultRoute();

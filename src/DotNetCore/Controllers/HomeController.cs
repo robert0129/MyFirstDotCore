@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DotNetCore.Controllers
 {
+    [Route("Core")]
     public class HomeController : BaseController
     {
         // GET: /<controller>/
+        [Route("start")]
         public IActionResult Index()
         {
             return View();
