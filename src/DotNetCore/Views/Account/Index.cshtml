@@ -5,10 +5,24 @@
 @{
     ViewBag.Title = "Account List";
 }
-
-@foreach (var acct in Model)
-{
-    <ul>
-        <li>@acct.username | @acct.email</li>
-    </ul>
-}
+<a asp-action="Create" class="btn btn-primary pull-right">Create New Account</a>
+<h1>Accounts</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        @foreach (var acct in Model)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <strong>@acct.username</strong>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item"><label asp-for="@acct.email"></label>: @acct.email</li>
+                        <li class="list-group-item"><label asp-for="@acct.phone"></label>: @acct.phone</li>
+                    </ul>
+                </div>
+            </div>
+        }
+    </div>
+</div>
