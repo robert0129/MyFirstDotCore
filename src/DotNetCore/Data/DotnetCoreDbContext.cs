@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DotNetCore.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,9 @@ namespace DotNetCore.Data
         //}
         public DotnetCoreDbContext(DbContextOptions<DotnetCoreDbContext> options) : base(options)
         {
-            
+
         }
+
+        public DbSet<Account> Account {get;set;}
     }
 }
