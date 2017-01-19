@@ -23,7 +23,8 @@ namespace DotNetCore.Controllers
         {
             var model = _accountRepository.GetAllAccounts();
             //return View(model);
-            return View("IndexPartivalView", model);
+            //return View("IndexPartivalView", model);
+            return View("IndexViewComponent", model);
         }
 
         public IActionResult Create()

@@ -1,0 +1,19 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Account
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>@Model.username</strong>
+    </div>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item"><label asp-for="@Model.email"></label>: @Model.email</li>
+            <li class="list-group-item"><label asp-for="@Model.phone"></label>: @Model.phone</li>
+        </ul>
+    </div>
+</div>
