@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using DotNetCore.Services;
+using DotNetCore.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DotNetCore
 {
@@ -30,7 +32,7 @@ namespace DotNetCore
         {
             // Add framework services.
             services.AddMvc();
-
+            services.AddDbContext<DotnetCoreDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             // Customer Services
             services.AddSingleton<IAccountRepository, AccountRepository>();
         }
