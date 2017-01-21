@@ -15,9 +15,14 @@ namespace DotNetCore.Data
         //}
         public DotnetCoreDbContext(DbContextOptions<DotnetCoreDbContext> options) : base(options)
         {
-
+            //Database.EnsureCreated();
         }
 
-        public DbSet<Account> Account {get;set;}
+        public DbSet<Account> Accounts {get;set;}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Account>().ToTable("Account");
+        }
     }
 }

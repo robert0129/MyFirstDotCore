@@ -8,7 +8,8 @@ namespace DotNetCore.Models
 {
     public class Account
     {
-        public int id { get; set; }
+        
+        public int Id { get; set; }
 
         [Required, MaxLength(30)]
         [Display(Name = "User Name")]
@@ -24,5 +25,8 @@ namespace DotNetCore.Models
 
         [Required]
         public string password { get; set; }
+
+        public Guid uuid { get; set; }
+        public DateTime RegisterDate { get; set; }
     }
 }

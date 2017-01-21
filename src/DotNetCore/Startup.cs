@@ -10,6 +10,10 @@ using Microsoft.Extensions.Logging;
 using DotNetCore.Services;
 using DotNetCore.Data;
 using Microsoft.EntityFrameworkCore;
+using DotNetCore.CustomHandler;
+using DotNetCore.Models;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace DotNetCore
 {
@@ -30,11 +34,17 @@ namespace DotNetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var custentry = Configuration.GetSection("CustEntry").Get<CustEntry>();
+            EncryptionMechanism.SetValut(custentry.key);
             // Add framework services.
             services.AddMvc();
-            services.AddDbContext<DotnetCoreDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            var _conn = Configuration.GetConnectionString("DefaultConnection");
+            //var _conn = EncryptionMechanism.AESEncryption(conn);
+            var dconn = EncryptionMechanism.AESDecryption(_conn);
+            services.AddDbContext<DotnetCoreDbContext>(options => options.UseSqlServer(dconn));
             // Customer Services
-            services.AddSingleton<IAccountRepository, AccountRepository>();
+            //services.AddSingleton<IAccountRepository, AccountRepository>();
+            services.AddScoped < IAccountRepository, DatabaseAccountRepository > ();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
